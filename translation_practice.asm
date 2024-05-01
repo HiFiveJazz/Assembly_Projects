@@ -13,7 +13,7 @@ _start:
 ; Outer For Loop
     xorl ecx,ecx #set ecx equal to zero, i -> %ecx
 fori: 
-    cmpl $80, ecx
+    cmpl $50, ecx
     jge endi
 
 ; Inner For Loop
@@ -22,10 +22,10 @@ forj:
     cmpl $80, edx
     jge endj
 
-    imull $80, ecx, eax
-    addl edx, eax
-    movl (esi,eax,4), ebx
-    movl ebx, (edi, eax, 4) 
+    imull $80, ecx, eax #80*i
+    addl edx, eax #80*i + j
+    movl (esi,eax,4), ebx # ebx = @X + (80i + j)4, %ebx <- X[i][j]
+    movl ebx, (edi, eax, 4) #M[i][j] <- %ebx
 
     incl edx
     jmp forj
