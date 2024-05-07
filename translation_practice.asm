@@ -1,4 +1,5 @@
 section .data
+test
     msg db 'Hello, World!', 0
 
 section .text
