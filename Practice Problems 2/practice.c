@@ -8,7 +8,7 @@ int res; //@ -4[ebp]
 res = 0;
 for (i=0, i<3, i+=jump) {
     for (j=0; j<3; j++){
-      res -= Matrix[i][j]+i;
+      res -= Matrix[i][j]+j;
     }
   }
 return res;
